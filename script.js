@@ -1,6 +1,7 @@
 
 const targetDiv = document.getElementById("target_div")
 let counter = 0;
+let productNames = []
 
 document.getElementById("add_button").addEventListener("click", addElement);
 
@@ -16,8 +17,9 @@ function createInnerElement(idx){
   newElement.id = `inner_element_${idx}`
 
   const paragraph = document.createElement("p")
-  paragraph.textContent = "Hello, world! " + idx;
-
+  const productName = (Math.random() + 1).toString(36).substring(7)
+  productNames.push(productName)
+  paragraph.textContent = `${idx}: Hello, world! `;
 
   const button = document.createElement("button")
   button.innerText = "Remove"
@@ -35,7 +37,15 @@ function createInnerElement(idx){
 
 function removeInnerElement(idx) {
   document.querySelector(`#inner_element_${idx}`).remove()
-  if (idx === counter) {
-    counter--
+  counter--
+  renderAgain()
+}
+
+function renderAgain(){
+  targetDiv.innerHTML = ''
+  let idx = 0
+  while (idx < counter){
+    idx++
+    targetDiv.appendChild(createInnerElement(idx));
   }
 }
