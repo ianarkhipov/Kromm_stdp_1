@@ -1,7 +1,7 @@
 
 const targetDiv = document.getElementById("target_div")
 let counter = 0;
-let productNames = []
+//let productNames = []
 
 document.getElementById("add_button").addEventListener("click", addElement);
 
@@ -17,8 +17,8 @@ function createInnerElement(idx){
   newElement.id = `inner_element_${idx}`
 
   const paragraph = document.createElement("p")
-  const productName = (Math.random() + 1).toString(36).substring(7)
-  productNames.push(productName)
+  // const productName = (Math.random() + 1).toString(36).substring(7)
+  // productNames.push(productName)
   paragraph.textContent = `${idx}: Hello, world! `;
 
   const button = document.createElement("button")
