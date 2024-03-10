@@ -1,22 +1,24 @@
 
 const targetDiv = document.getElementById("target_div");
-let counter = 0;
 let productNames = [];
 
-
 document.getElementById("add_button").addEventListener("click", addElement);
+document.getElementById("name_input").addEventListener("keyup", (event)=>{
+  if (event.keyCode === 13) {
+    addElement()
+  }
+})
 
 function addElement() {
-  counter++;
-  const productName = document.getElementById("name").value;
+  const productName = document.getElementById("name_input").value;
   productNames.push(productName);
-  const newInnerElement = createInnerElement(counter, productName);
+  const newInnerElement = createInnerElement(productName, productNames.length);
   targetDiv.appendChild(newInnerElement);
   //далее чистим инпут
-  document.getElementById("name").value = "";
+  document.getElementById("name_input").value = "";
 }
 
-function createInnerElement(idx, productName){
+function createInnerElement(productName, idx){
   const newElement = document.createElement("div")
   newElement.style.margin = '10px';
   newElement.id = `inner_element_${idx}`
@@ -42,23 +44,15 @@ function createInnerElement(idx, productName){
 }
 
 function removeInnerElement(idx) {
-  // document.querySelector(`#inner_element_${idx}`).remove()
-  counter--
-  console.log(productNames)
   productNames.splice(idx-1, 1)
-  console.log(idx)
-  console.log(productNames)
   renderAgain()
 }
 
 
 function renderAgain(){
   targetDiv.innerHTML = ''
-  let idx = 0
-  while (idx < counter){
-    const productName = productNames[idx]
-    const newInnerElement = createInnerElement(idx, productName);
+  productNames.forEach((productName, index)=> {
+    const newInnerElement = createInnerElement(productName, index+1);
     targetDiv.appendChild(newInnerElement);
-    idx++
-  }
+  })
 }
