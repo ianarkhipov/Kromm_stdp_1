@@ -42,16 +42,23 @@ function createInnerElement(idx, productName){
 }
 
 function removeInnerElement(idx) {
-  document.querySelector(`#inner_element_${idx}`).remove()
+  // document.querySelector(`#inner_element_${idx}`).remove()
   counter--
+  console.log(productNames)
+  productNames.splice(idx-1, 1)
+  console.log(idx)
+  console.log(productNames)
   renderAgain()
 }
+
 
 function renderAgain(){
   targetDiv.innerHTML = ''
   let idx = 0
   while (idx < counter){
+    const productName = productNames[idx]
+    const newInnerElement = createInnerElement(idx, productName);
+    targetDiv.appendChild(newInnerElement);
     idx++
-    targetDiv.appendChild(createInnerElement(idx));
   }
 }
