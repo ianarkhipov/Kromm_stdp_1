@@ -30,6 +30,7 @@ function solution_3(input){
     .reverse()
     .reduce((acc, cur)=>acc+cur, "")
     //todo: understand what is going on
+
 }
 
 
