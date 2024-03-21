@@ -7,11 +7,11 @@
 const n = 6;
 
 
-
-function factorialReduce(n) {
-  if (n === 0 || n === 1) {
-    return 1;
-  } else {
-    return Array.from({ length: n }, (_,))
-  }
-}
+//
+// function factorialReduce(n) {
+//   if (n === 0 || n === 1) {
+//     return 1;
+//   } else {
+//     return Array.from({ length: n }, (_,))
+//   }
+// }
