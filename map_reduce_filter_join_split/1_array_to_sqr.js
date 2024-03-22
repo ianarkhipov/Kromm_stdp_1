@@ -19,11 +19,11 @@ console.log(output_2)
 
 const input_3 = [2, {}, [], null, undefined, "ilya"]
 const output_3 = input_3.map(inputItem => {
-  if (inputItem === null || inputItem === undefined) {
-    return NaN;
-  } else {
+  // if (inputItem === null || inputItem === undefined) {
+  //   return NaN;
+  // } else {
     return parseInt(inputItem) ** 2;
-  }
+  // }
   // return inputItem ** 2
 })
 console.log(output_3)

@@ -6,17 +6,23 @@
 
 const input = ["a", "c", "a", "d"]
 
-const count = input.reduce((acc, i) => {
-  if (acc.hasOwnProperty(i)) {
-    acc[i] += 1;
-  } else {
-    acc[i] = 1;
+const count = input.reduce((acc, symbol) => {
+  if (acc.hasOwnProperty(symbol)) {
+    acc[symbol] += 1;
+    // ВАЖНО - это мутация!!!
+    return acc
   }
-  return acc;
-},{})
+  // возвращаем новый объект который включает в себя все ключи-значения аккумулятора плюс ключ [symbol] со значением 1
+  // ВАЖНО - это не мутация!!!
+  return {...acc, [symbol]: 1}
+  // return [...a, 4]
+}, {})
 
 //console.log(count)
 
-for (const key in count) {
-  console.log(key + ': ' + count[key]);
-}
+// for (const key in count) {
+//   console.log(key + ': ' + count[key]);
+// }
+
+
+console.log(count)

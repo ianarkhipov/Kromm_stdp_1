@@ -4,10 +4,9 @@
  * Попробуй, не получится - реши через for, while....
  */
 
-const n = 6;
+// const n = 6;
 
 
-//
 // function factorialReduce(n) {
 //   if (n === 0 || n === 1) {
 //     return 1;
@@ -15,3 +14,8 @@ const n = 6;
 //     return Array.from({ length: n }, (_,))
 //   }
 // }
+
+
+console.log(Array.from({length: 6})
+  .map((_, index)=> index + 1)
+  .reduce((acc, curr) => acc * curr, 1))
