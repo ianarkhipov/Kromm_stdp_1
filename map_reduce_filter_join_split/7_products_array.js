@@ -60,7 +60,19 @@ const averagePriceArrays = Object.entries(pricesPerCategory)
 const averagePrice = Object.fromEntries(averagePriceArrays)
 console.log("2. averagePrice step-by-step", averagePrice)
 
-
+// solution 2. one more solution
+console.log("3. reduce-reduce",
+  products.reduce(
+    (acc, curr) => Array.from(new Set([...acc, curr.category])),
+    []
+  )
+  .reduce((acc, categoryName, idx)=>{
+    const categoryOnlyProducts = products.filter((product)=>product.category===categoryName)
+    return {
+      ...acc,
+      [categoryName]: categoryOnlyProducts.reduce((acc, curr, idx, arr) => acc + curr.price, 0) / categoryOnlyProducts.length
+  }}, {})
+)
 
 
 console.log("3. categories",
