@@ -1,5 +1,4 @@
 let currentCharacterIndex = 1;
-const textElement = document.getElementById("text");
 
 function fetchCharacter(index) {
   let request = `https://swapi.dev/api/people/${index}/`
@@ -13,7 +12,6 @@ function fetchCharacter(index) {
   });
 }
 
-//вспомогательное уравнивание индекса?
 fetchCharacter(currentCharacterIndex);
 
 document.getElementById("prev").addEventListener("click", () => {
