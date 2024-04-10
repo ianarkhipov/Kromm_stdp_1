@@ -1,0 +1,14 @@
+{
+  "name": "star_wars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ianarkhipov/Kromm_stdp_1.git"
+  },
+  "private": true
+}
