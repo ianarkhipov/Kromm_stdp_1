@@ -1,3 +1,5 @@
+
+
 let request = "https://swapi.dev/api/people/1/"
 
 fetch(request).then((response) => {
