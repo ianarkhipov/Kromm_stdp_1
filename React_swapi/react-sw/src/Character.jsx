@@ -22,7 +22,8 @@ const fetchCharacter = () => {
     return (
         <div>
             <p>
-                I am character. My name: {character.name}.
+                I am character. My name: {character.name}, height: {character.height}, weight: {character.mass},
+                birth year: {character.birth_year}
             </p>
         </div>
     )
