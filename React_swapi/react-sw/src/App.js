@@ -3,6 +3,8 @@ import './App.css';
 import {useState} from "react";
 import {Character} from "./Character"
 
+import {A, B} from "./my-file";
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -23,9 +25,10 @@ function App() {
       </p>
       <button onClick={increase}>Increase</button>
       <button onClick={decrease}>Decrease</button>
-      <Character characterName = "Vasya"/>
+      <Character name ={"Vasya"} x={count}/>
+      <Character name ={"Petya"} x={count}/>
     </div>
-  );
+  )
 }
 
 export default App;
