@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
+import {Character} from "./Character"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       </p>
       <button onClick={increase}>Increase</button>
       <button onClick={decrease}>Decrease</button>
+      <Character characterName = "Vasya"/>
     </div>
   );
 }
