@@ -21,7 +21,7 @@ const fetchCharacter = () => {
             })
             .catch((error) => {
                 setError('There is no such a character')
-
+                console.error(error)
             });
         })
 }
