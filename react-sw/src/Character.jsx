@@ -45,6 +45,7 @@ const fetchCharacter = () => {
 
     return (
         <div>
+            {props.id} My id
             <p>
                 I am character. My name: {character.name}, height: {character.height}, weight: {character.mass},
             </p>
