@@ -3,14 +3,15 @@ import {useEffect, useState} from "react";
 
 function Character(props) {
     const [character, setCharacter] = useState({})
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
 
 const fetchCharacter = () => {
         if (!props.id) {
-            setError('Failed to fetch');
+            setError('Failed to load - no id');
             return;
         }
-
+    setIsLoading(true)
     fetch(`https://swapi.tech/api/people/${props.id}/?format=json`)
         .then((res) =>{(res.json())
             .then((data) => {
@@ -20,9 +21,12 @@ const fetchCharacter = () => {
                 setError(null);
             })
             .catch((error) => {
-                setError('There is no such a character')
+                setError('There is no character with id ' + props.id)
                 console.error(error)
-            });
+            })
+            .finally(()=>{
+                setIsLoading(false)
+            })
         })
 }
 
@@ -30,6 +34,10 @@ const fetchCharacter = () => {
         fetchCharacter,
         [props.id]
     );
+
+    if (isLoading) {
+        return <div>loading</div>
+    }
 
     if (error) {
         return <div>Error: {error}</div>
@@ -39,7 +47,6 @@ const fetchCharacter = () => {
         <div>
             <p>
                 I am character. My name: {character.name}, height: {character.height}, weight: {character.mass},
-                birth year: {character.birth_year}
             </p>
         </div>
     )
