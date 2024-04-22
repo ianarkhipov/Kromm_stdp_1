@@ -3,7 +3,7 @@ import './App.css';
 import {useState} from "react";
 import {Character} from "./Character"
 
-import {A, B} from "./my-file";
+
 
 function App() {
   const [characterId, setCharacterId] = useState(0)
