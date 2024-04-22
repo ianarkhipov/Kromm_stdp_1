@@ -6,7 +6,7 @@ import {Character} from "./Character"
 
 
 function App() {
-  const [characterId, setCharacterId] = useState(0)
+  const [characterId, setCharacterId] = useState(1)
 
   const increase = ()=> {
     console.log("I am increased")
