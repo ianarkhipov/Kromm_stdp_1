@@ -1,5 +1,5 @@
 
-import {useEffect, useState} from "react";
+import {useEffect, useState} from "react"
 
 function Character(props) {
     const [character, setCharacter] = useState({})
@@ -8,17 +8,17 @@ function Character(props) {
 
 const fetchCharacter = () => {
         if (!props.id) {
-            setError('Failed to load - no id');
-            return;
+            setError('Failed to load - no id')
+            return
         }
     setIsLoading(true)
     fetch(`https://swapi.tech/api/people/${props.id}/?format=json`)
         .then((res) =>{(res.json())
             .then((data) => {
                 //структура запроса
-                console.log(data.result);
-                setCharacter(data.result.properties);
-                setError(null);
+                console.log(data.result)
+                setCharacter(data.result.properties)
+                setError(null)
             })
             .catch((error) => {
                 setError('There is no character with id ' + props.id)
@@ -33,7 +33,7 @@ const fetchCharacter = () => {
     useEffect(
         fetchCharacter,
         [props.id]
-    );
+    )
 
     if (isLoading) {
         return <div>loading</div>
@@ -47,7 +47,8 @@ const fetchCharacter = () => {
         <div>
             {props.id} My id
             <p>
-                I am character. My name: {character.name}, height: {character.height}, weight: {character.mass},
+                I am character. My name: {character.name}, height: {character.height},
+                weight: {character.mass},
             </p>
         </div>
     )
