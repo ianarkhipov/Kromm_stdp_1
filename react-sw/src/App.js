@@ -1,6 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import {useState} from "react";
+import logo from './logo.svg'
+import './App.css'
+import {useState} from "react"
 import {Character} from "./Character"
 
 
@@ -30,4 +30,4 @@ function App() {
   )
 }
 
-export default App;
+export default App
