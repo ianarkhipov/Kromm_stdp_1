@@ -1,12 +1,13 @@
 import logo from './logo.svg'
 import './App.css'
 import {useState} from "react"
-import {Character} from "./Character"
+// import {Character} from "./Character"
 
 
 
 function App() {
   const [characterId, setCharacterId] = useState(1)
+  const [characters, setCharacters] = useState({})
 
   const increase = ()=> {
     console.log("I am increased")
@@ -18,6 +19,25 @@ function App() {
     setCharacterId(characterId - 1)
   }
 
+  const getCharacterById = async (id) => {
+    const characterFromState = characters[id]
+    if (characterFromState) {
+      return characterFromState
+    }
+
+    await fetch(`https://swapi.tech/api/people/${characterId}/?format=json`)
+      .then((res) =>{(res.json())
+        .then((data) => {
+          //структура запроса
+          console.log(data.result)
+          setCharacters((oldState) => ({...oldState, [id] : data.result.properties}))
+          console.log(characters)
+        })
+      })
+  }
+
+
+
   return (
     <div className="App">
       <p>
@@ -25,7 +45,8 @@ function App() {
       </p>
       <button onClick={increase}>Increase</button>
       <button onClick={decrease}>Decrease</button>
-      <Character id={characterId} />
+      <button onClick={()=> getCharacterById(characterId)}>GET person</button>
+      {/*<Character id={characterId} />*/}
     </div>
   )
 }
